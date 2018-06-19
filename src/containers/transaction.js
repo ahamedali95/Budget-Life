@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 import TransactionList from '../components/transaction-list';
+import { Radio } from 'semantic-ui-react'
+
 
 class Transaction extends Component{
      constructor(){
@@ -13,9 +15,20 @@ class Transaction extends Component{
     render() {
         return (
             <div>
+                <form action="">
+                  <input type="radio" name="Expense" value="Expense"/>
+                  <label htmlFor="Expense"> Expense </label>
+                  <input type="radio" name="Income" value="Income"/>
+                  <label htmlFor="Income"> Income</label>
+                  <br/><br/>
+                  <label htmlFor="date">Date </label>
+                  <input type="date"/> <br/> <br/>
+                  <label htmlFor="description">Description </label>
+                  <input name="description" type="text"/>
+                  
+                </form>
 
-                <h1>Transaction cont parent to: </h1>
-                <p>Will contain add expense/income</p>
+
                 <TransactionList />
             </div>
         );
