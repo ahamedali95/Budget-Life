@@ -64,6 +64,7 @@
     margin-right: auto;
 
 }
-#button{
+#loginButton, #signUpButton, #resetButton{
     margin-top: 23px;
+    
 }

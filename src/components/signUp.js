@@ -34,8 +34,26 @@ class SignUp extends Component{
                     type="email"
                     name="email"
                     placeholder="Enter Email"/>
+                    <Form.Field control={Input}
+                        label="Password"
+                        type="password"
+                        name="password"
+                        placeholder="Enter Password"/>
+                    <Form.Field control={Input}
+                        label="Verify Password"
+                        type="password"
+                        name="verify password"
+                        placeholder="Re-Enter Password"/>
 
-                <Form.Field id="button" control={Button}>Sign-Up</Form.Field>
+                <Form.Group >
+                <Form.Field id="signUpButton"
+                    type="button"
+                    control={Button}>Sign-Up</Form.Field>
+
+                <Form.Field id="resetButton"
+                    type="reset"
+                    control={Button}>Reset </Form.Field>
+                </Form.Group>
 
             </Form>
 

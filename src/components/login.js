@@ -26,7 +26,7 @@ class Login extends Component{
                         type="password"
                         name="firstName"
                         placeholder="Enter Password"/>
-                        <Form.Field id="button" control={Button}>Login</Form.Field>
+                    <Form.Field id="loginButton" control={Button}>Login</Form.Field>
 
                 </Form>
             </div>
