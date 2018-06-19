@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
-import {Menu} from 'semantic-ui-react';
+// import {Menu} from 'semantic-ui-react';
 class Login extends Component{
      constructor(){
         super();

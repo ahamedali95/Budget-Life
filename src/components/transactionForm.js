@@ -22,7 +22,7 @@ class TransactionForm extends Component{
     handleChange = (e, { value }) => this.setState({ value })
 
   render() {
-    const { value } = this.state
+    // const { value } = this.state
     return (
         <div id="transaction-form">
       <Form onSubmit={this.props.onClick}>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
-import {Card, Form,Input, Icon, Segment} from 'semantic-ui-react';
+import {Form,Input} from 'semantic-ui-react';
 class SignUp extends Component{
      constructor(){
         super();
