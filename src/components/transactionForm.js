@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
-import { Button, Checkbox, Form, Input, Radio, Select, TextArea } from 'semantic-ui-react'
-
+import { Button, Form, Input } from 'semantic-ui-react'
+let dateFormat = require('dateformat');
+let now = new Date()
 const options = [
   { key: 'i', text: 'Income', value: 'income' },
   { key: 'e', text: 'Expense', value: 'expense' },
@@ -12,11 +13,10 @@ const categories = [
 ]
 
 class TransactionForm extends Component{
-     constructor(){
-        super();
-
+     constructor(props){
+        super(props);
         this.state={
-
+            date: dateFormat(now,"mm,dd, yyyy")
         }
     }
     handleChange = (e, { value }) => this.setState({ value })
@@ -25,14 +25,14 @@ class TransactionForm extends Component{
     const { value } = this.state
     return (
         <div id="transaction-form">
-      <Form>
+      <Form onSubmit={this.props.onClick}>
 
         <Form.Group >
 
-          <Form.Field  id="formDate"control={Input} required type="date" label='Date' />
-          <Form.Field id="formDescription" control={Input} label='Description' placeholder='Description' required/>
-          <Form.Select id="formCategory" label='Category' options={categories} placeholder='Category' />
-            <Form.Select id="formType" label='Type' options={options} placeholder='Type' required/>
+          <Form.Field  id="formDate"control={Input} name="date" type="date" label='Date' placeholder={this.state.date}/>
+          <Form.Field id="formDescription" name="description" control={Input} label='Description' placeholder='Description'/>
+          <Form.Select id="formCategory" name="category" label='Category' options={categories} placeholder='Category' />
+            <Form.Select id="formType" label='Type' name="type" options={options} placeholder='Type'/>
 
             <Form.Field id="button" control={Button}>Add</Form.Field>
         </Form.Group>
