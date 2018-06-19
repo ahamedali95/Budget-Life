@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 
-class Login extends Component{
+class SignUp extends Component{
      constructor(){
         super();
 
@@ -12,11 +12,11 @@ class Login extends Component{
     render() {
         return (
             <div>
-                <h1>Login hihi</h1>
+                <h1>Sign Up hihi</h1>
                 <h1>Hi 2</h1>
                 </div>
         );
     }
 }
 
-export default Login;
+export default SignUp;

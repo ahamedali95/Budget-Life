@@ -5,7 +5,7 @@ import Transaction from './containers/transactionContainer';
 import Bills from './components/bills.js';
 import Goals from './components/goals.js';
 import Nav from './components/nav.js';
-
+import LoginSignUpContainer from './containers/loginSignUpContainer.js';
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
 
           <Nav />
-
+          <LoginSignUpContainer/>
           <Home />
           <Transaction />
           <Bills />
