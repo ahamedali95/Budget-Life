@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Home from './components/home.js';
-import Transaction from './containers/transaction';
+import Transaction from './containers/transactionContainer';
 import Bills from './components/bills.js';
 import Goals from './components/goals.js';
 import Nav from './components/nav.js';
