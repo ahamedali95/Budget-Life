@@ -27,10 +27,28 @@
   to { transform: rotate(360deg); }
 }
 #transaction-form{
-    width: 700px;
+    width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
-.dropdown{
-    max-width:70px;
+#formCategory, #formType{
+    min-width: 8em;
+
+}
+#formDate {
+    max-width: 170px;
+}
+#formDescription{
+    width: 300px;
+}
+
+
+#transactionTable{
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#button{
+    margin-top: 23px;
 }
