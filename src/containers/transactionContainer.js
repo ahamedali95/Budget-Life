@@ -11,6 +11,7 @@ class Transaction extends Component{
         super();
 
         this.state={
+            transactions: [],
             date: dateFormat(now,"mm,dd, yyyy"),
             description:null,
             category: null,
