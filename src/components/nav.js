@@ -23,28 +23,27 @@ class Nav extends Component{
           active={activeItem === 'home'}
           onClick={this.handleItemClick}
         >
-          Home
+          <Icon name="home"/>Home
         </Menu.Item>
 
         <Menu.Item name='transactions' active={activeItem === 'transactions'} onClick={this.handleItemClick}>
-          Transactions
+          <Icon name="dollar sign"/>Transactions
         </Menu.Item>
 
         <Menu.Item
           name='eventPlanning'
           active={activeItem === 'eventPlanning'}
-          onClick={this.handleItemClick}
-        >
-          Event Planning
+          onClick={this.handleItemClick}>
+          <Icon name="calendar alternate"/>Event Planning
         </Menu.Item>
         <Menu.Menu position='right'>
-            <Dropdown  item icon="wrench" simple>
+            <Dropdown  item icon="setting" simple>
                 <Dropdown.Menu>
                     <Dropdown.Item >
-                        Logout
+                        <Icon name="log out" color="red" value="logout"/>Logout
                     </Dropdown.Item>
                     <Dropdown.Item>
-                        Profile
+                        <Icon name="user" color="blue" value="user"/>Profile
                     </Dropdown.Item>
 
                 </Dropdown.Menu>
