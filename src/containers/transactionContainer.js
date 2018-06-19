@@ -27,7 +27,7 @@ class Transaction extends Component{
     }
     render() {
         return (
-            <div>
+            <div id="transactionCont">
                 <TransactionForm onClick={this.handleSubmit}/>
                 <TransactionList />
             </div>

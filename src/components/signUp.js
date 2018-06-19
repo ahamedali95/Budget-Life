@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
-
+import {Card, Form,Input, Icon, Segment} from 'semantic-ui-react';
 class SignUp extends Component{
      constructor(){
         super();
@@ -12,9 +12,15 @@ class SignUp extends Component{
     render() {
         return (
             <div>
-                <h1>Sign Up hihi</h1>
-                <h1>Hi 2</h1>
-                </div>
+            <Form>
+                <Form.Group>
+                <Form.Field control={Input} label="FirstName"
+                    type="text" name="firstName" placeholder="First Name"/>
+                </Form.Group>
+            </Form>
+
+
+            </div>
         );
     }
 }

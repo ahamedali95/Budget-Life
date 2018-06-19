@@ -21,6 +21,19 @@
 .App-intro {
   font-size: large;
 }
+#transactionCont{
+    background-color: green;
+    padding: 10px;
+}
+#loginSignUp{
+    background-color: red;
+    border: 10px solid blue;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 600px;
+    padding: 15px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
