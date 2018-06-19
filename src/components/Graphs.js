@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 
-class Graph extends Component{
+class Graphs extends Component{
      constructor(){
         super();
 
@@ -18,4 +18,4 @@ class Graph extends Component{
     }
 }
 
-export default Graph;
+export default Graphs;
