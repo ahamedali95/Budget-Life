@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
-// import {Menu} from 'semantic-ui-react';
+import {Form,Input, Button} from 'semantic-ui-react';
+
 class Login extends Component{
      constructor(){
         super();
@@ -11,9 +12,23 @@ class Login extends Component{
     }
     render() {
         return (
-            <div>
-                <h1>Login hihi</h1>
-                <h1>Hi 2</h1>
+            <div id="login">
+                <Form>
+                    <Form.Field
+                        control={Input}
+                        label="Email"
+                        type="email"
+                        name="Email"
+                        placeholder="Enter Email"/>
+                    <Form.Field
+                        control={Input}
+                        label="Password"
+                        type="password"
+                        name="firstName"
+                        placeholder="Enter Password"/>
+                        <Form.Field id="button" control={Button}>Login</Form.Field>
+
+                </Form>
             </div>
         );
     }

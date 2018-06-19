@@ -34,11 +34,13 @@
     height: 600px;
     padding: 15px;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#login{
+    margin: auto;
+    padding-top: 25%;
+    padding-bottom: 25%;
 }
+
+
 #transaction-form{
     width: 900px;
     margin-left: auto;
