@@ -4,7 +4,8 @@ import NumericInput from 'react-numeric-input';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import adapter from "../adapter.js";
+import adapter from "../../adapter.js";
+import { Form, Label, Input } from 'semantic-ui-react'
 
 class BillForm extends React.Component {
    constructor(props) {
@@ -39,7 +40,7 @@ class BillForm extends React.Component {
      }, () => console.log(this.state));
    }
 
-   myFormat= (num) => {
+  myFormat= (num) => {
     return num + '$';
   }
 
@@ -67,27 +68,44 @@ class BillForm extends React.Component {
 
     adapter.post("http://localhost:3001/api/v1/bills", bodyForBill)
     .then(response => response.json())
-    .then(data => {this.props.fetchNewBills()});
+    .then(data => {this.props.fetchBills()})
+    .then(() => {this.resetForm()});
+  }
+
+  resetForm = () => {
+    this.setState({
+      due_amount: 50.00,
+      category: "",
+      description: "",
+      due_date: moment()
+    });
   }
 
    render() {
      return(
-       <div>
-         <form onSubmit={this.handleSubmit}>
-            <label>Due Amount </label>
-            <NumericInput format={this.myFormat} step={0.10} precision={2} min={0} max={9999999} value={this.state.due_amount} onChange={this.handleChangeForNumbericInput}/>
-            <br/> <br/>
-            <label>Category </label>
+       <div style={{width: "500px"}}>
+         <h3>Add a Bill</h3>
+
+         <Form onSubmit={this.handleSubmit}>
+          <Form.Field>
+            <Input label="Description" type="text" placeholder="Add a description" name="description" value={this.state.description} onChange={this.handleChange} />
+          </Form.Field>
+          <Form.Field>
+            <Label>Category</Label>
             <CategorySelection categories={this.props.categories} getOption={this.getOption}/>
-            <br/> <br/>
-            <label>Description </label>
-            <textarea name="description" value={this.state.description} onChange={this.handleChange} placeholder="Add a description"></textarea>
-            <br/> <br/>
-            <label>Date </label>
-            <DatePicker selected={moment(this.state.due_date)} onChange={this.handleChangeForDatePicker} />
-            <br/> <br/>
-            <input type="submit" value="Create Bill"></input>
-         </form>
+          </Form.Field>
+          <Form.Group style={{width: "400px"}}>
+            <Form.Field>
+              <Label>Amount</Label>
+              <NumericInput format={this.myFormat} step={0.10} precision={2} min={1} max={9999999} value={this.state.due_amount} onChange={this.handleChangeForNumbericInput}/>
+            </Form.Field>
+            <Form.Field>
+              <Label>Date</Label>
+              <DatePicker selected={moment(this.state.due_date)} onChange={this.handleChangeForDatePicker} />
+            </Form.Field>
+          </Form.Group>
+          <Form.Field control="button">Create Bill</Form.Field>
+         </Form>
        </div>
      );
    }

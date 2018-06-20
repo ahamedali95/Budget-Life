@@ -8,7 +8,7 @@ const CategorySelection = (props) => {
         <option>None</option>
         {
           props.categories.map((categoryObj) => {
-            return <option>{categoryObj.name}</option>
+            return <option key={categoryObj.id}>{categoryObj.name}</option>;
           })
         }
       </select>

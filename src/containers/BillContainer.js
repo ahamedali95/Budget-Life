@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import adapter from "../adapter.js";
-import BillForm from "../components/BillForm.js";
-import BillsCollection from "../components/BillsCollection.js";
+import BillForm from "../components/BillContainerComponents/BillForm.js";
+import BillsCollection from "../components/BillContainerComponents/BillsCollection.js";
 
 class BillContainer extends React.Component {
   constructor() {
@@ -29,7 +29,7 @@ class BillContainer extends React.Component {
     }));
   }
 
-  fetchNewBills = () => {
+  fetchBills = () => {
     adapter.get("http://localhost:3001/api/v1/bills")
     .then(response => response.json())
     .then(data => {
@@ -41,8 +41,9 @@ class BillContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <BillForm fetchNewBills={this.fetchNewBills} categories={this.state.categories}/>
+      <div className='rowC'>
+        <h1>Bills</h1>
+        <BillForm fetchBills={this.fetchBills} categories={this.state.categories}/>
         <BillsCollection bills={this.state.bills}/>
       </div>
     );
