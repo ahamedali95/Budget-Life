@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from './components/home.js';
+import HomeContainer from './containers/HomeContainer.js';
 import Transaction from './containers/transactionContainer';
-import Bills from './components/bills.js';
-import Goals from './components/goals.js';
 import Nav from './components/nav.js';
 import LoginSignUpContainer from './containers/loginSignUpContainer.js';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -14,11 +13,8 @@ class App extends Component {
 
           <Nav />
           <LoginSignUpContainer/>
-          <Home />
+          <HomeContainer />
           <Transaction />
-          <Bills />
-          <Goals />
-
       </div>
     );
   }
