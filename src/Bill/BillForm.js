@@ -4,7 +4,7 @@ import NumericInput from 'react-numeric-input';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import adapter from "../../adapter.js";
+import adapter from "./../adapter.js";
 import { Form, Label, Input } from 'semantic-ui-react'
 
 class BillForm extends React.Component {
@@ -83,7 +83,7 @@ class BillForm extends React.Component {
 
    render() {
      return(
-       <div style={{width: "500px"}}>
+       <div id="billForm" >
          <h3>Add a Bill</h3>
 
          <Form onSubmit={this.handleSubmit}>

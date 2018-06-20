@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 import { Menu, Icon, Segment, Dropdown } from 'semantic-ui-react'
-
-class Nav extends Component{
+import {NavLink} from 'react-router-dom';
+class NavBar extends Component{
      constructor(){
         super();
 
@@ -18,24 +18,35 @@ class Nav extends Component{
 
     return (
       <Menu>
-        <Menu.Item
-          name='home'
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}
-        >
-          <Icon name="home"/>Home
-        </Menu.Item>
-
+          <NavLink to="/home">
+            <Menu.Item
+              name='home'
+              active={activeItem === 'home'}
+              onClick={this.handleItemClick}>
+              <Icon name="home"/>Home
+            </Menu.Item>
+        </NavLink>
+        <NavLink to="/transactions">
         <Menu.Item name='transactions' active={activeItem === 'transactions'} onClick={this.handleItemClick}>
           <Icon name="dollar sign"/>Transactions
         </Menu.Item>
-
+        </NavLink>
+        <NavLink to="/event_plannings">
         <Menu.Item
           name='eventPlanning'
           active={activeItem === 'eventPlanning'}
           onClick={this.handleItemClick}>
           <Icon name="calendar alternate"/>Event Planning
         </Menu.Item>
+        </NavLink>
+        <NavLink to="/bills">
+        <Menu.Item
+          name='bills'
+          active={activeItem === 'bills'}
+          onClick={this.handleItemClick}>
+          <Icon name="payment"/>Bills
+        </Menu.Item>
+        </NavLink>
         <Menu.Menu position='right'>
             <Dropdown  item icon="setting" simple>
                 <Dropdown.Menu>
@@ -55,4 +66,4 @@ class Nav extends Component{
   }
 }
 
-export default Nav;
+export default NavBar;

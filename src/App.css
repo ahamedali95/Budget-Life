@@ -64,7 +64,12 @@
     margin-right: auto;
 
 }
-#loginButton, #signUpButton, #resetButton{
+#loginButton, #signUpButton, #resetButton, #formButton{
     margin-top: 23px;
-    
+
+}
+#billForm{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }

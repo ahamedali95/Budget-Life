@@ -34,7 +34,7 @@ class TransactionForm extends Component{
           <Form.Select id="formCategory" name="category" label='Category' options={categories} placeholder='Category' />
             <Form.Select id="formType" label='Type' name="type" options={options} placeholder='Type'/>
 
-            <Form.Field id="button" control={Button}>Add</Form.Field>
+            <Form.Field id="formButton" control={Button}>Add</Form.Field>
         </Form.Group>
 
 

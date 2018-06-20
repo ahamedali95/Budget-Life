@@ -1,7 +1,7 @@
 import React from "react";
 import adapter from "../adapter.js";
-import EventForm from "../components/EventContainerComponents/EventForm.js";
-import EventsCollection from "../components/EventContainerComponents/EventsCollection.js";
+import EventForm from "./EventForm.js";
+import EventsCollection from "./EventsCollection.js";
 
 class EventContainer extends React.Component {
   constructor() {
