@@ -15,7 +15,7 @@ class SignUp extends Component{
             <Form >
                 <Form.Group>
                 <Form.Field control={Input}
-                    width={8}
+                    width={6}
                     label="First Name"
                     type="text"
                     name="firstName"

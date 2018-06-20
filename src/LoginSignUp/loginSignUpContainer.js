@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 // import PropTypes from 'prop-types'
-import Login from '../components/login.js';
-import SignUp from '../components/signUp.js';
+import Login from './login.js';
+import SignUp from './signUp.js';
 import {Menu, Input, Segment} from 'semantic-ui-react';
 
 const styles={
@@ -12,16 +12,12 @@ class LoginSignUpContainer extends Component{
         super();
     this.state = {
         activeItem: 'signUp',
-        isSignUp : true,
     }
 
 
 
 }
 handleItemClick = (e, { name }) => {
-    console.log(e);
-    console.log({name});
-
     this.setState({ activeItem: name })
 }
         render(){
@@ -29,7 +25,10 @@ handleItemClick = (e, { name }) => {
             <div id="loginSignUp">
                 <div>
                 <Menu tabular>
-                    <Menu.Item name='signUp' active={this.state.activeItem === 'signUp'} onClick={this.handleItemClick} />
+                    <Menu.Item
+                        name='signUp'
+                        active={this.state.activeItem === 'signUp'}
+                        onClick={this.handleItemClick} />
 
                     <Menu.Item
                         name='login'
