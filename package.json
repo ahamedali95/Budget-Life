@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.7.2",
     "dateformat": "^3.0.3",
     "moment": "^2.22.2",
     "react": "^16.4.1",

@@ -10,7 +10,7 @@ class NavBar extends Component{
             activeItem: "home"
         }
     }
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    handleClick = (e, { name }) => this.setState({ activeItem: name })
 
 
     render() {
@@ -18,35 +18,39 @@ class NavBar extends Component{
 
     return (
       <Menu>
-          <NavLink to="/home">
             <Menu.Item
+                as={NavLink}
+                to="/home"
               name='home'
               active={activeItem === 'home'}
-              onClick={this.handleItemClick}>
+              onClick={this.handleClick}>
               <Icon name="home"/>Home
             </Menu.Item>
-        </NavLink>
-        <NavLink to="/transactions">
-        <Menu.Item name='transactions' active={activeItem === 'transactions'} onClick={this.handleItemClick}>
-          <Icon name="dollar sign"/>Transactions
-        </Menu.Item>
-        </NavLink>
-        <NavLink to="/event_plannings">
+
+            <Menu.Item
+                as={NavLink}
+                to="/transactions"
+                name='transactions' active={activeItem === 'transactions'} onClick={this.handleClick}>
+              <Icon name="dollar sign"/>Transactions
+            </Menu.Item>
+
         <Menu.Item
+            as={NavLink}
+            to="/event_plannings"
           name='eventPlanning'
           active={activeItem === 'eventPlanning'}
-          onClick={this.handleItemClick}>
+          onClick={this.handleClick}>
           <Icon name="calendar alternate"/>Event Planning
         </Menu.Item>
-        </NavLink>
-        <NavLink to="/bills">
+
         <Menu.Item
-          name='bills'
-          active={activeItem === 'bills'}
-          onClick={this.handleItemClick}>
+            as={NavLink}
+            to="/bills"
+            name='bills'
+            active={activeItem === 'bills'}
+            onClick={this.handleClick}>
           <Icon name="payment"/>Bills
         </Menu.Item>
-        </NavLink>
         <Menu.Menu position='right'>
             <Dropdown  item icon="setting" simple>
                 <Dropdown.Menu>

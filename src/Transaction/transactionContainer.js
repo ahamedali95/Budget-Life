@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 import TransactionList from './transactionList';
-import { Radio } from 'semantic-ui-react'
 import TransactionForm from './transactionForm';
+import { Radio } from 'semantic-ui-react'
 let dateFormat = require('dateformat');
 let now = new Date()
 

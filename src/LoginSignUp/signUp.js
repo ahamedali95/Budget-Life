@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 import {Form,Input, Button} from 'semantic-ui-react';
+let url = "http://localhost:3001/api/v1/users"
 class SignUp extends Component{
      constructor(){
         super();
@@ -9,7 +10,24 @@ class SignUp extends Component{
 
         }
     }
+
+createUser = () => {
+    let config = {}
+    fetch(url, config)
+        .then(response=>response.json())
+        .then(data=>console.log(data, "hi"))
+  //   'Accept': 'application/json',
+  // 'Content-Type': 'application/json'}
+  //   config.body = JSON.stringify({
+  // image_id: imageId,
+  // content: comment
+
+}
+
+
     render() {
+        this.createUser()
+
         return (
             <div>
             <Form >

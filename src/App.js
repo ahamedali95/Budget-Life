@@ -10,23 +10,27 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
 class App extends Component {
+    constructor(){
+        super();
+        this.state = {
+            isAuthenticated: false
+        }
+    }
   render() {
-      // <LoginSignUpContainer/>
-      // <HomeContainer />
-      // <Transaction />
-      // <BillContainer/>
+
     return (
       <div className="App">
 
-          <Router>
-              <div>
-              <NavBar />
-              <Route exact path="/" component={LoginSignUpContainer}></Route>
-              <Route exact path="/transactions" component={Transaction}></Route>
-              <Route exact path="/event_plannings" component={EventContainer}></Route>
-              <Route exact path="/bills" component={BillContainer}></Route>
-              </div>
-          </Router>
+      <Router>
+          <div>
+          <NavBar />
+          <Route exact path="/" component={LoginSignUpContainer}></Route>
+          <Route exact path="/home" component={HomeContainer}></Route>
+          <Route exact path="/transactions" component={Transaction}></Route>
+          <Route exact path="/event_plannings" component={EventContainer}></Route>
+          <Route exact path="/bills" component={BillContainer}></Route>
+          </div>
+      </Router>
       </div>
     );
   }

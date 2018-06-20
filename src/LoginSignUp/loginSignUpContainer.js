@@ -4,9 +4,6 @@ import Login from './login.js';
 import SignUp from './signUp.js';
 import {Menu, Input, Segment} from 'semantic-ui-react';
 
-const styles={
-    display : "none"
-}
 class LoginSignUpContainer extends Component{
     constructor(){
         super();
