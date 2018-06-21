@@ -1,9 +1,9 @@
 import React from "react";
-import Chart from 'chart.js';
+// import Chart from 'chart.js';
 
 //import BillContainer from "../Bill/BillContainer.js";
 //import EventContainer from "./EventContainer.js";
-let myChart = new Chart(10);
+// let myChart = new Chart(10);
 
 class HomeContainer extends React.Component {
   render() {

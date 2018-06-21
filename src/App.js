@@ -6,7 +6,7 @@ import HomeContainer from './Home/HomeContainer.js';
 import Transaction from './Transaction/transactionContainer.js';
 import BillContainer from './Bill/BillContainer.js';
 import EventContainer from './Event/EventContainer.js';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 class App extends Component {
