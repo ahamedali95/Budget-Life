@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
-import { Menu, Icon, Segment, Dropdown } from 'semantic-ui-react'
+import { Menu, Icon, Dropdown } from 'semantic-ui-react'
 import {NavLink} from 'react-router-dom';
 class NavBar extends Component{
      constructor(){

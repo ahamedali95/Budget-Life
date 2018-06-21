@@ -3,7 +3,7 @@ import adapter from "./../adapter.js";
 import BillForm from "./BillForm.js";
 import BillsCollection from "./BillsCollection.js";
 
-class BillContainer extends React.Component {
+class BillContainer extends Component {
   constructor() {
     super();
 

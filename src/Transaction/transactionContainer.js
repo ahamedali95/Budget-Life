@@ -2,22 +2,37 @@ import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 import TransactionList from './transactionList';
 import TransactionForm from './transactionForm';
-import { Radio } from 'semantic-ui-react'
-let dateFormat = require('dateformat');
-let now = new Date()
+// import { Radio } from 'semantic-ui-react'
+// let dateFormat = require('dateformat');
+// let now = new Date()
+let url = "http://localhost:3001/api/v1/"
+
 
 class Transaction extends Component{
      constructor(){
         super();
 
         this.state={
-            transactions: [],
-            date: dateFormat(now,"mm,dd, yyyy"),
-            description:null,
-            category: null,
-            type: "income",
+           transactions:[],
+           categories:[]
+
         }
     }
+
+    componentDidMount() {
+      console.log(`${url}transactions`);
+      Promise.all([
+         fetch(`${url}transactions`),
+         fetch(`${url}categories`)
+      ])
+         .then(([res1,res2])=>Promise.all([res1.json(), res2.json()]))
+         .then(([transactions,categories])=>this.setState({
+               transactions,
+               categories
+            },()=>{console.log(this.state)}))
+
+   }
+
     handleSubmit = (e) => {
        let date = e.target.date.value
        let description = e.target.description.value
@@ -25,11 +40,16 @@ class Transaction extends Component{
        let type = e.target.description.value
        console.log(date, description, category, type);
     }
+    addNewTransaction = (input) => {
+      this.setState({transactions: [...this.state.transactions, input]})
+    }
     render() {
         return (
             <div id="transactionCont">
-                <TransactionForm onClick={this.handleSubmit}/>
-                <TransactionList />
+                <TransactionForm
+                   addNewTransaction={this.addNewTransaction}
+                   onClick={this.handleSubmit}/>
+                <TransactionList transactions={this.state.transactions}/>
             </div>
         );
     }
