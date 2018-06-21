@@ -12,6 +12,17 @@ const adapter = {
     };
 
     return fetch(URI, config);
+  },
+  patch: function(URI, body) {
+    const config = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    };
+
+    return fetch(URI, config);
   }
 }
 

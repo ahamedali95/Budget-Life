@@ -27,8 +27,12 @@ class EventContainer extends React.Component {
 
   addNewEvent = (eventObj) => {
     this.setState({
-      events: [eventObj, ...this.state.events]
+      events: [...this.state.events, eventObj]
     });
+  }
+
+  editEvent = (eventObj) => {
+    this.fetchEvents();
   }
 
   render() {
@@ -36,7 +40,7 @@ class EventContainer extends React.Component {
       <div>
         <h1>Events</h1>
         <EventForm addNewEvent={this.addNewEvent}/>
-        <EventsCollection events={this.state.events}/>
+        <EventsCollection editEvent={this.editEvent} events={this.state.events}/>
       </div>
     );
   }

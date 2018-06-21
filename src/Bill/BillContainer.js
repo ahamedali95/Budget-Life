@@ -27,7 +27,7 @@ class BillContainer extends React.Component {
 
   addNewBill = (billObj) => {
     this.setState({
-      bills: [billObj, ...this.state.bills]
+      bills: [...this.state.bills, billObj]
     });
   }
 

@@ -1,44 +1,34 @@
 import React from "react";
-import { Table } from 'semantic-ui-react';
+import Event from "./Event.js";
+import { Button, Card} from 'semantic-ui-react'
 
-const EventsCollection = (props) => {
-  const rows = props.events.map((eventObj) => {
-    const splittedDate = eventObj.date.slice(0, 10).split("-");
-    const formattedDate = [splittedDate[1], splittedDate[2], splittedDate[0]].join("/");
+class EventsCollection extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      isChangeAmount: false
+    };
+  }
+
+  getCards = () => {
+    return this.props.events.map((eventObj) => {
+      const splittedDate = eventObj.date.slice(0, 10).split("-");
+      const formattedDate = [splittedDate[1], splittedDate[2], splittedDate[0]].join("/");
+
+      return <Event event={eventObj} editEvent={this.props.editEvent}/>
+    });
+  }
+
+  render() {
     return (
-      <Table.Row key={eventObj.id}>
-      <Table.Cell>{eventObj.name}</Table.Cell>
-      <Table.Cell>${eventObj.current_savings}</Table.Cell>
-      <Table.Cell>${eventObj.goal_amount}</Table.Cell>
-      <Table.Cell>{formattedDate}</Table.Cell>
-      </Table.Row>
+      <div style={{width: "500px"}}>
+      <h3>Events</h3>
+        <Card.Group>
+          {this.getCards()}
+        </Card.Group>
+      </div>
     );
-  });
-
-  return(
-    <div style={{width: "500px"}}>
-    <h3>Events</h3>
-    {
-      props.events.length > 0 ?
-      <Table color="red">
-        <Table.Header>
-          <Table.Row>
-            <th>Name</th>
-            <th>Savings</th>
-            <th>Amount Needed</th>
-            <th>Date</th>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {rows}
-        </Table.Body>
-      </Table>
-      :
-      null
-    }
-    </div>
-  );
+  }
 }
-
 export default EventsCollection;
