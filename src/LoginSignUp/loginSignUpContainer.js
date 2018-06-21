@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 // import PropTypes from 'prop-types'
 import Login from './login.js';
 import SignUp from './signUp.js';
-import {Menu, Input, Segment} from 'semantic-ui-react';
+import {Menu, Segment} from 'semantic-ui-react';
 
 class LoginSignUpContainer extends Component{
     constructor(){
