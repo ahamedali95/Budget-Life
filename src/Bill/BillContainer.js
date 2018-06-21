@@ -14,28 +14,20 @@ class BillContainer extends Component {
   }
 
   componentDidMount() {
-    adapter.get("http://localhost:3001/api/v1/categories")
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        categories: data
-      });
-    }).then(adapter.get("http://localhost:3001/api/v1/bills")
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        bills: data
-      });
+    Promise.all([
+      fetch("http://localhost:3001/api/v1/categories"),
+      fetch("http://localhost:3001/api/v1/bills")
+    ])
+    .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
+    .then(([data1, data2]) => this.setState({
+      categories: data1,
+      bills: data2
     }));
   }
 
-  fetchBills = () => {
-    adapter.get("http://localhost:3001/api/v1/bills")
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        bills: data
-      });
+  addNewBill = (billObj) => {
+    this.setState({
+      bills: [billObj, ...this.state.bills]
     });
   }
 
@@ -43,8 +35,8 @@ class BillContainer extends Component {
     return (
       <div className='rowC'>
         <h1>Bills</h1>
-        <BillForm fetchBills={this.fetchBills} categories={this.state.categories}/>
-        <BillsCollection bills={this.state.bills}/>
+        <BillForm addNewBill={this.addNewBill} categories={this.state.categories}/>
+        <BillsCollection categories={this.state.categories} bills={this.state.bills}/>
       </div>
     );
   }

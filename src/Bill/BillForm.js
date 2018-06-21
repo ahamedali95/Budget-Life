@@ -13,7 +13,7 @@ class BillForm extends React.Component {
 
      this.state = {
        due_amount: 50.00,
-       category: "",
+       category: "Miscellaneous",
        description: "",
        due_date: moment()
      };
@@ -22,7 +22,7 @@ class BillForm extends React.Component {
    handleChangeForNumbericInput = (value) => {
      this.setState({
        due_amount: value
-     }, () => console.log(typeof(this.state)));
+     }, () => console.log(typeof(this.state.due_amount)));
    }
 
    handleChangeForDatePicker = (event) => {
@@ -60,7 +60,6 @@ class BillForm extends React.Component {
     const bodyForBill = {
       due_date: this.state.due_date,
       due_amount: this.state.due_amount,
-      name: "electricity bill",
       description: this.state.description,
       user_id: 1,
       category_id: categoryId
@@ -68,14 +67,14 @@ class BillForm extends React.Component {
 
     adapter.post("http://localhost:3001/api/v1/bills", bodyForBill)
     .then(response => response.json())
-    .then(data => {this.props.fetchBills()})
+    .then(data => {this.props.addNewBill(data)})
     .then(() => {this.resetForm()});
   }
 
   resetForm = () => {
     this.setState({
       due_amount: 50.00,
-      category: "",
+      category: "Miscellaneous",
       description: "",
       due_date: moment()
     });
@@ -97,7 +96,7 @@ class BillForm extends React.Component {
           <Form.Group style={{width: "400px"}}>
             <Form.Field>
               <Label>Amount</Label>
-              <NumericInput format={this.myFormat} step={0.10} precision={2} min={1} max={9999999} value={this.state.due_amount} onChange={this.handleChangeForNumbericInput}/>
+              <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.due_amount} onChange={this.handleChangeForNumbericInput}/>
             </Form.Field>
             <Form.Field>
               <Label>Date</Label>
