@@ -3,6 +3,7 @@ import NumericInput from 'react-numeric-input';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import adapter from "./../adapter.js";
 import { Form, Input, Label } from 'semantic-ui-react'
 
 class EventForm extends React.Component{
@@ -11,8 +12,8 @@ class EventForm extends React.Component{
 
     this.state = {
       name: "",
-      description: "",
       amount_needed: 50.00,
+      savings: 50.00,
       date: moment()
     }
   }
@@ -23,9 +24,15 @@ class EventForm extends React.Component{
     }, () => console.log(this.state));
   }
 
-  handleChangeForNumbericInput = (value) => {
+  handleChangeForNumbericInput1 = (value) => {
     this.setState({
       amount_needed: value
+    }, () => console.log(this.state));
+  }
+
+  handleChangeForNumbericInput2 = (value) => {
+    this.setState({
+      savings: value
     }, () => console.log(this.state));
   }
 
@@ -41,22 +48,48 @@ class EventForm extends React.Component{
     return num + '$';
   }
 
+  handleSubmit = (event) => {
+    const body = {
+      date: this.state.date,
+      name: this.state.name,
+      current_savings: this.state.savings,
+      goal_amount: this.state.amount_needed,
+      user_id: 1,
+    };
+
+    adapter.post("http://localhost:3001/api/v1/event_plannings", body)
+    .then(response => response.json())
+    .then(data => {this.props.addNewEvent(data)})
+    .then(this.resetForm);
+  }
+
+  resetForm = () => {
+    this.setState({
+      name: "",
+      description: "",
+      amount_needed: 50.00,
+      savings: 50.00,
+      date: moment()
+    });
+  }
+
   render() {
     return (
       <div>
-        <Form style={{width: "500px"}} onSubmit={this.props.fetchEvents}>
+        <Form style={{width: "500px"}} onSubmit={this.handleSubmit}>
           <h3>Add an Event</h3>
 
           <Form.Field>
             <Input label="Name" type="text" placeholder="Event Name" name="name" value={this.state.name} onChange={this.handleChange}/>
           </Form.Field>
-          <Form.Field>
-            <Input label="Description" type="text" placeholder="Add a description" name="description" value={this.state.description} onChange={this.handleChange}/>
-          </Form.Field>
           <Form.Group style={{width: "400px"}}>
             <Form.Field>
               <Label>Amount Needed</Label>
-              <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.amount_needed} onChange={this.handleChangeForNumbericInput}/>
+              <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.amount_needed} onChange={this.handleChangeForNumbericInput1}/>
+            </Form.Field>
+            <Form.Field>
+              <Label>Savings</Label>
+              <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.savings} onChange={this.handleChangeForNumbericInput2}/>
             </Form.Field>
             <Form.Field>
               <Label>Date</Label>

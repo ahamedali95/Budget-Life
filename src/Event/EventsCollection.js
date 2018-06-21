@@ -1,14 +1,17 @@
 import React from "react";
-import { Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react';
 
 const EventsCollection = (props) => {
   const rows = props.events.map((eventObj) => {
+    const splittedDate = eventObj.date.slice(0, 10).split("-");
+    const formattedDate = [splittedDate[1], splittedDate[2], splittedDate[0]].join("/");
+
     return (
       <Table.Row key={eventObj.id}>
       <Table.Cell>{eventObj.name}</Table.Cell>
-      <Table.Cell>{eventObj.description}</Table.Cell>
-      <Table.Cell>${eventObj.amount_needed}</Table.Cell>
-      <Table.Cell>{eventObj.date}</Table.Cell>
+      <Table.Cell>${eventObj.current_savings}</Table.Cell>
+      <Table.Cell>${eventObj.goal_amount}</Table.Cell>
+      <Table.Cell>{formattedDate}</Table.Cell>
       </Table.Row>
     );
   });
@@ -22,7 +25,7 @@ const EventsCollection = (props) => {
         <Table.Header>
           <Table.Row>
             <th>Name</th>
-            <th>Description</th>
+            <th>Savings</th>
             <th>Amount Needed</th>
             <th>Date</th>
           </Table.Row>
