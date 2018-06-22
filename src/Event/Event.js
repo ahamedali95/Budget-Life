@@ -1,5 +1,5 @@
 import React from "react";
-import {Card} from 'semantic-ui-react';
+import {Card, Button} from 'semantic-ui-react';
 import NumericInput from 'react-numeric-input';
 import adapter from "../adapter.js";
 
@@ -23,7 +23,7 @@ class Event extends React.Component {
     } else {
       console.log("reached goal")
       this.setState({
-        color: "green"
+        color: "lightgrey"
       });
     }
   }

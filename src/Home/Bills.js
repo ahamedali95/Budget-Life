@@ -24,7 +24,7 @@ const Bills = (props) => {
   return (
     <div>
       <h3>Latest Bills</h3>
-      <Table color="green">
+      <Table>
         <Table.Header>
           <Table.Row>
             <th>Description</th>

@@ -75,14 +75,14 @@ class EventForm extends React.Component{
 
   render() {
     return (
-      <div>
-        <Form style={{width: "500px"}} onSubmit={this.handleSubmit}>
+      <div id="eventForm">
+        <Form  onSubmit={this.handleSubmit}>
           <h3>Add an Event</h3>
 
           <Form.Field>
             <Input label="Name" type="text" placeholder="Event Name" name="name" value={this.state.name} onChange={this.handleChange}/>
           </Form.Field>
-          <Form.Group style={{width: "400px"}}>
+          <Form.Group >
             <Form.Field>
               <Label>Amount Needed</Label>
               <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.amount_needed} onChange={this.handleChangeForNumbericInput1}/>

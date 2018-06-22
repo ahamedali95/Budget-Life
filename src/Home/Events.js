@@ -20,7 +20,7 @@ const Events = (props) => {
   return (
     <div>
       <h3>Latest Events</h3>
-      <Table color="green">
+      <Table>
         <Table.Header>
           <Table.Row>
             <th>Name</th>

@@ -93,7 +93,7 @@ class BillForm extends React.Component {
             <Label>Category</Label>
             <CategorySelection categories={this.props.categories} getOption={this.getOption}/>
           </Form.Field>
-          <Form.Group style={{width: "400px"}}>
+          <Form.Group >
             <Form.Field>
               <Label>Amount</Label>
               <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.due_amount} onChange={this.handleChangeForNumbericInput}/>
