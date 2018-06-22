@@ -1,33 +1,11 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
 #transactionCont{
-    background-color: green;
-    padding: 10px;
+    padding: 30px 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 #loginSignUp{
-    background-color: red;
-    border: 10px solid blue;
+    border: 10px solid;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -74,5 +52,13 @@
     margin-right: auto;
 }
 #formAmount{
+   width:100px;
+}
+
+/* Transaction container */
+#expenseRow, #incomeRow, #typeRow{
+   width: 75px;
+}
+#catRow, #dateRow{
    width:100px;
 }

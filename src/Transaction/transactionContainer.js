@@ -33,23 +33,27 @@ class Transaction extends Component{
 
    }
 
-    handleSubmit = (e) => {
-       let date = e.target.date.value
-       let description = e.target.description.value
-       let category= e.target.description.value
-       let type = e.target.description.value
-       console.log(date, description, category, type);
-    }
-    addNewTransaction = (input) => {
-      this.setState({transactions: [...this.state.transactions, input]})
+    // handleSubmit = (e) => {
+    //    let date = e.target.date.value
+    //    let description = e.target.description.value
+    //    let category= e.target.description.value
+    //    let type = e.target.description.value
+    //    console.log(date, description, category, type);
+    // }
+    addNewTransaction = (newTransaction) => {
+      this.setState({transactions: [...this.state.transactions, newTransaction]},() => console.log(this.state))
+      debugger;
     }
     render() {
         return (
             <div id="transactionCont">
                 <TransactionForm
+                   categories={this.state.categories}
                    addNewTransaction={this.addNewTransaction}
                    onClick={this.handleSubmit}/>
-                <TransactionList transactions={this.state.transactions}/>
+                <TransactionList
+                   categories={this.state.categories}
+                   transactions={this.state.transactions}/>
             </div>
         );
     }
