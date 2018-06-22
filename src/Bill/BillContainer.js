@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import adapter from "../adapter.js";
-=======
-import adapter from "./../adapter.js";
->>>>>>> 1578f7123776a4dc87cbf1a6b8f5c0f46cd7619c
 import BillForm from "./BillForm.js";
 import BillsCollection from "./BillsCollection.js";
 
