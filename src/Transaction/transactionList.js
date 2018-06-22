@@ -48,7 +48,6 @@ totalAmounts = (category, amount) => {
    } else {
       totalExpenses += amount
    }
-   debugger;
 }
 
 

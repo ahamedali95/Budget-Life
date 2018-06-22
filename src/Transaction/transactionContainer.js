@@ -42,7 +42,6 @@ class Transaction extends Component{
     // }
     addNewTransaction = (newTransaction) => {
       this.setState({transactions: [...this.state.transactions, newTransaction]},() => console.log(this.state))
-      debugger;
     }
     render() {
         return (

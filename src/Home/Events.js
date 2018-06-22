@@ -18,7 +18,7 @@ const Events = (props) => {
   });
 
   return (
-    <div>
+    <div id="dashEvents">
       <h3>Latest Events</h3>
       <Table>
         <Table.Header>
