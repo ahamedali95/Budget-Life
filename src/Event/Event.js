@@ -1,5 +1,5 @@
 import React from "react";
-import {Card} from 'semantic-ui-react';
+import {Card, Button} from 'semantic-ui-react';
 import NumericInput from 'react-numeric-input';
 import adapter from "../adapter.js";
 
@@ -11,7 +11,7 @@ class Event extends React.Component {
       isClicked: false,
       savings: 50,
       color: null
-    }
+    };
   }
 
   componentDidMount() {
