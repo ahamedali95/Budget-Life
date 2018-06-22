@@ -1,16 +1,17 @@
-
-#transactionCont{
-    padding: 30px 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+body{
+   background-image: url("./budgeting.jpg");
 }
+
 #loginSignUp{
-    border: 10px solid;
+    border: 10px solid lightgrey;
+    border-radius: 10px;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
     height: 600px;
     padding: 15px;
+    margin-top: 100px;
+    background-color:#2f3d65;
 }
 #login{
     margin: auto;
@@ -18,9 +19,17 @@
     padding-bottom: 25%;
 }
 
+#homeCont{
+   background-color:#2f3d65;
+   padding: 40px;
+   margin-top:100px;
+}
+#dashBills, #dashEvents{
+   margin: 30px;
+}
 
-#transaction-form{
-    width: 900px;
+#transaction-form, #billCollect, #homeCont{
+    width: 950px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -29,17 +38,27 @@
 
 }
 #formDate {
-    max-width: 170px;
+    max-width: 160px;
 }
 #formDescription{
-    width: 300px;
+    width: 250px;
 }
 
 
-#transactionTable{
-    max-width: 950px;
+#transactionTable , #BillCollection{
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+#eventCont, #billCont, #transactionCont{
+   background-color:#2f3d65;
+   padding: 60px;
+   margin-top:100px;
+   max-width: 950px;
+   margin-left: auto;
+   margin-right: auto;
 
 }
 #loginButton, #signUpButton, #resetButton, #formButton{
@@ -60,5 +79,5 @@
    width: 75px;
 }
 #catRow, #dateRow{
-   width:100px;
+   width:90px;
 }

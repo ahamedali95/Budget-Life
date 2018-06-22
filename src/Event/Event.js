@@ -23,7 +23,7 @@ class Event extends React.Component {
     } else {
       console.log("reached goal")
       this.setState({
-        color: "green"
+        color: "lightgrey"
       });
     }
   }

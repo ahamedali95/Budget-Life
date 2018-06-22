@@ -48,7 +48,6 @@ totalAmounts = (category, amount) => {
    } else {
       totalExpenses += amount
    }
-   debugger;
 }
 
 
@@ -75,7 +74,7 @@ totalAmounts = (category, amount) => {
                 <Table.Footer>
                   <Table.Row>
                      <Table.HeaderCell textAlign="right" colSpan='6'>
-                     <h3>Total {}</h3>
+                     <h3>Total $500.00</h3>
 
                      </Table.HeaderCell>
                   </Table.Row>

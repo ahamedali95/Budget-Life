@@ -59,7 +59,7 @@ class EventContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="eventCont">
         <h1>Events</h1>
         <EventForm addNewEvent={this.addNewEvent}/>
         <EventsCollection removeEvent={this.removeEvent} editEvent={this.editEvent} events={this.state.events}/>

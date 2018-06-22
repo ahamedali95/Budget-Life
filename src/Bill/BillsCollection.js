@@ -22,13 +22,13 @@ const BillsCollection = (props) => {
   });
 
   return(
-    <div style={{width: "500px"}}>
+    <div id="billCollect" >
     {
       props.bills.length > 0 ?
-      <div>
-        <h3>Bills</h3>
-        <Table color="green">
+      <div id="BillCollection">
+        <Table>
           <Table.Header>
+             Bills
             <Table.Row>
               <th>Description</th>
               <th>Amount Due</th>

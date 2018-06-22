@@ -62,9 +62,9 @@ class HomeContainer extends React.Component {
   render() {
     return (
       <div>
-         <div>
-             <h1>Home</h1>
-              <h1>Graph</h1>
+         <div id="homeCont">
+             <h1>Dashboard</h1>
+              <h1>Will Show graphs of goals and savings</h1>
               <Bills bills={this.state.bills} categories={this.state.categories}/>
               <Events events={this.state.events}/>
           </div>
