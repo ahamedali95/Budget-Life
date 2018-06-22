@@ -9,9 +9,7 @@ let url = "http://localhost:3001/api/v1/transactions"
 const options = [
   { key: 'i', text: 'Income', value: 'income' },
   { key: 'e', text: 'Expense', value: 'expense' }]
-const categories = [
-  { key: 'r', text: 'Restaurant', value: 'restaurant' },
-  { key: 'phone', text: 'Phone Bill', value: 'phoneBill' }]
+
 
 class TransactionForm extends Component{
      constructor(props){
@@ -19,19 +17,16 @@ class TransactionForm extends Component{
         this.state={
            date: "",
            description:"",
-           category_id: 1,
+           category_id: null,
            transaction_type : null,
            amount : null,
            user_id: 1,
         }
     }
     handleChange = (e, {name, value}) => {
-
+      let id = (e.target.id === "") ? e.target.parentElement.id : e.target.id
      if (typeof(e.target.name) === "undefined"){
-        this.setState({
-           [name]: value}, () => {
-             console.log(this.state)
-          })
+        (name === "category_id") ?  (this.setState({[name]: id})) : (this.setState({[name]: value}, () => { console.log(this.state) }))
        } else {
           this.setState({[e.target.name] : e.target.value}, () => {
              console.log(this.state)}
@@ -46,30 +41,43 @@ class TransactionForm extends Component{
       adapter.post(url,body)
          .then(response=>response.json())
          .then(transaction=>this.props.addNewTransaction(transaction))
+         // .then(transaction=>console.log(transaction, "what is"))
 
 
     }
 
   render() {
+     let newCats = this.props.categories.map(cats=>{
+        return {key:cats.id, text: cats.name, value:cats.name.replace(" ","").toLowerCase(), id: cats.id}
+     })
     return (
         <div id="transaction-form">
       <Form onSubmit={this.handleSubmit}>
 
         <Form.Group >
-          <Form.Field  onChange={this.handleChange} id="formDate"control={Input} name="date" type="date" label='Date' />
-          <Form.Field id="formDescription" onChange={this.handleChange} name="description" control={Input} label='Description' placeholder='Enter Description...'/>
+          <Form.Field
+             required
+             onChange={this.handleChange} id="formDate"control={Input} name="date" type="date" label='Date' />
+          <Form.Field id="formDescription"
+             onChange={this.handleChange} name="description"
+             required
+             control={Input}
+             label='Description'
+             placeholder='Enter Description...'/>
           <Form.Select
              id="formCategory"
              onChange={this.handleChange}
              name="category_id"
+             required
              label='Category'
-             options={categories}
+             options={newCats}
              placeholder='Category' />
 
           <Form.Select
              id="formType"
              onChange={this.handleChange}
-             label='transaction'
+             label='Transaction'
+             required
              name="transaction_type"
              options={options}
              placeholder='Type'/>
@@ -78,6 +86,7 @@ class TransactionForm extends Component{
              onChange={this.handleChange}
              id = "formAmount"
              label='Amount'
+             required
              name="amount"
              control={Input}
              placeholder='Enter Amount'/>

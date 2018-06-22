@@ -1,6 +1,6 @@
 import React from "react";
 import Event from "./Event.js";
-import { Button, Card} from 'semantic-ui-react'
+import {Card} from 'semantic-ui-react'
 
 class EventsCollection extends React.Component {
   constructor(props) {
@@ -13,8 +13,8 @@ class EventsCollection extends React.Component {
 
   getCards = () => {
     return this.props.events.map((eventObj) => {
-      const splittedDate = eventObj.date.slice(0, 10).split("-");
-      const formattedDate = [splittedDate[1], splittedDate[2], splittedDate[0]].join("/");
+      // const splittedDate = eventObj.date.slice(0, 10).split("-");
+      // const formattedDate = [splittedDate[1], splittedDate[2], splittedDate[0]].join("/");
 
       return <Event event={eventObj} editEvent={this.props.editEvent}/>
     });
@@ -24,7 +24,7 @@ class EventsCollection extends React.Component {
     return (
       <div style={{width: "500px"}}>
       <h3>Events</h3>
-        <Card.Group>
+        <Card.Group >
           {this.getCards()}
         </Card.Group>
       </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import adapter from "./../adapter.js";
+// import adapter from "./../adapter.js";
 import BillForm from "./BillForm.js";
 import BillsCollection from "./BillsCollection.js";
 

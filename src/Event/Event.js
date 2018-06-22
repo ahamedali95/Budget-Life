@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card} from 'semantic-ui-react';
+import {Card} from 'semantic-ui-react';
 import NumericInput from 'react-numeric-input';
 import adapter from "../adapter.js";
 
