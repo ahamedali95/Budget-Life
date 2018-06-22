@@ -23,6 +23,13 @@ const adapter = {
     };
 
     return fetch(URI, config);
+  },
+  delete: function(URI) {
+    const config = {
+      method: "DELETE",
+    };
+
+    return fetch(URI, config);
   }
 }
 

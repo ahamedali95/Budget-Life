@@ -9,7 +9,22 @@ class Event extends React.Component {
 
     this.state = {
       isClicked: false,
-      savings: 50
+      savings: 50,
+      color: null
+    }
+  }
+
+  componentDidMount() {
+    console.log("inside componenrt did mount")
+    if(this.props.event.goal_amount > this.props.event.current_savings) {
+      this.setState({
+        color: "red"
+      });
+    } else {
+      console.log("reached goal")
+      this.setState({
+        color: "green"
+      });
     }
   }
 
@@ -39,31 +54,47 @@ class Event extends React.Component {
     })
   }
 
-  myFormat= (num) => {
+  myFormat = (num) => {
     return num + '$';
+  }
+
+  formattedDate = () => {
+    const splittedDate = this.props.event.date.slice(0, 10).split("-");
+
+    return [splittedDate[1], splittedDate[2], splittedDate[0]].join("/");
   }
 
   render() {
     return (
-      <Card>
-        <Card.Content>
-          <Card.Header>{this.props.event.name}</Card.Header>
-          <Card.Meta>${this.props.event.goal_amount}</Card.Meta>
-        </Card.Content>
-        <Card.Content>
-          <Card.Header>Amount Saved</Card.Header>
-          {this.state.isClicked ?
+      <div>
+        <Card>
+          <Card.Content style={{"background-color": this.state.color}}>
+            <Card.Header>{this.props.event.name}</Card.Header>
+            <Card.Meta>${this.props.event.goal_amount}</Card.Meta>
+          </Card.Content>
+          <Card.Content>
+            <Card.Header>Amount Saved</Card.Header>
+              {
+                this.state.isClicked ?
+                  <div>
+                    <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.savings} onChange={this.handleChangeForNumbericInput}/>
+                    <button onClick={this.updateSavings}>Update Savings</button>
+                  </div>
+                  :
+                  <Card.Header onClick={this.showInput}>${this.props.event.current_savings}</Card.Header>
+              }
+            <Card.Header>Amount Needed</Card.Header>
+            <Card.Header>${(this.props.event.goal_amount - this.props.event.current_savings) < 0 ? 0 : this.props.event.goal_amount - this.props.event.current_savings} by {this.formattedDate()}</Card.Header>
+          </Card.Content>
+          <Card.Content extra>
             <div>
-              <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.savings} onChange={this.handleChangeForNumbericInput}/>
-              <button onClick={this.updateSavings}>Update Savings</button>
+              <Button onClick={() => {this.props.removeEvent(this.props.event)}} basic color='red'>
+                Delete
+              </Button>
             </div>
-            :
-            <Card.Header onClick={this.showInput}>${this.props.event.current_savings}</Card.Header>
-          }
-          <Card.Header>Amount Needed</Card.Header>
-          <Card.Header>${(this.props.event.goal_amount - this.props.event.current_savings) < 0 ? 0 : this.props.event.goal_amount - this.props.event.current_savings}</Card.Header>
-        </Card.Content>
-      </Card>
+          </Card.Content>
+        </Card>
+      </div>
     );
   }
 }

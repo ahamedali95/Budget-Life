@@ -1,7 +1,6 @@
 import React from "react";
 
 const CategorySelection = (props) => {
-  console.log(props)
   return (
     <div>
       <select onChange={props.getOption}>
