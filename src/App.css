@@ -1,13 +1,11 @@
 
 #transactionCont{
-    background-color: green;
     padding: 30px 10px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 #loginSignUp{
-    background-color: red;
-    border: 10px solid blue;
+    border: 10px solid;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
