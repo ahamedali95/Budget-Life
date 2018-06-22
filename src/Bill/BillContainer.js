@@ -31,12 +31,27 @@ class BillContainer extends Component {
     });
   }
 
+  removeBill = (bill) => {
+    adapter.delete(`http://localhost:3001/api/v1/bills/${bill.id}`)
+    .then(response => response.json())
+    .then(() => {
+      console.log("state", this.state)
+      const bills1 = this.state.bills.filter((billObj) => {
+        return billObj.id !== bill.id
+      });
+
+      this.setState({
+        bills: bills1
+      });
+    })
+  }
+
   render() {
     return (
       <div className='rowC'>
         <h1>Bills</h1>
         <BillForm addNewBill={this.addNewBill} categories={this.state.categories}/>
-        <BillsCollection categories={this.state.categories} bills={this.state.bills}/>
+        <BillsCollection removeBill={this.removeBill} categories={this.state.categories} bills={this.state.bills}/>
       </div>
     );
   }

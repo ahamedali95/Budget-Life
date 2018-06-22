@@ -5,10 +5,6 @@ import { Button, Card} from 'semantic-ui-react'
 class EventsCollection extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isChangeAmount: false
-    };
   }
 
   getCards = () => {
@@ -16,7 +12,7 @@ class EventsCollection extends React.Component {
       const splittedDate = eventObj.date.slice(0, 10).split("-");
       const formattedDate = [splittedDate[1], splittedDate[2], splittedDate[0]].join("/");
 
-      return <Event event={eventObj} editEvent={this.props.editEvent}/>
+      return <Event key={eventObj.id} removeEvent={this.props.removeEvent} event={eventObj} editEvent={this.props.editEvent}/>
     });
   }
 
