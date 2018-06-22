@@ -14,6 +14,7 @@ class HomeContainer extends React.Component {
 
     this.state = {
       bills: [],
+      categories: [],
       events: []
     };
   }
@@ -23,6 +24,28 @@ class HomeContainer extends React.Component {
   }
 
   fetchBills = () => {
+    Promise.all([
+      adapter.get("http://localhost:3001/api/v1/bills"),
+      adapter.get("http://localhost:3001/api/v1/event_plannings"),
+      adapter.get("http://localhost:3001/api/v1/categories")
+    ])
+    .then(([res1, res2, res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
+    .then(([data1, data2, data3]) => {
+      const latestBills = data1.sort((billObj1, billObj2) => {
+        return new Date(billObj1.due_date) - new Date(billObj2.due_date);
+      }).slice(0, 3);
+
+      const latestEvents = data2.sort((eventObj1, eventObj2) => {
+        return new Date(eventObj1.date) - new Date(eventObj2.date);
+      }).slice(0, 3);
+
+      this.setState({
+        events: latestEvents,
+        bills: latestBills,
+        categories: data3
+      });
+  });
+
     adapter.get("http://localhost:3001/api/v1/bills")
     .then(response => response.json())
     .then(data => {
@@ -42,9 +65,8 @@ class HomeContainer extends React.Component {
          <div>
              <h1>Home</h1>
               <h1>Graph</h1>
-              <Bills bills={this.state.bills}/>
-              
-
+              <Bills bills={this.state.bills} categories={this.state.categories}/>
+              <Events events={this.state.events}/>
           </div>
       </div>
     );

@@ -16,7 +16,7 @@ const BillsCollection = (props) => {
         <Table.Cell>${billObj.due_amount}</Table.Cell>
         <Table.Cell>{category}</Table.Cell>
         <Table.Cell>{formattedDate}</Table.Cell>
-        <Table.Cell><i style={{color: "red"}} onClick={() => {props.removeBill(billObj)}} class="window close icon"></i></Table.Cell>
+        <Table.Cell><i style={{color: "red"}} onClick={() => {props.removeBill(billObj)}} className="window close icon"></i></Table.Cell>
       </Table.Row>
     );
   });
