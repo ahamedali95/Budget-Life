@@ -57,7 +57,12 @@ class TransactionForm extends Component{
         <Form.Group >
           <Form.Field
              required
-             onChange={this.handleChange} id="formDate"control={Input} name="date" type="date" label='Date' />
+             onChange={this.handleChange}
+             id="formDate"
+             control={Input}
+             name="date"
+             type="date"
+             label='Date' />
           <Form.Field id="formDescription"
              onChange={this.handleChange} name="description"
              required

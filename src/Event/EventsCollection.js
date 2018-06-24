@@ -18,7 +18,7 @@ class EventsCollection extends React.Component {
 
   render() {
     return (
-      <div style={{width: "500px"}}>
+      <div id="eventCollect">
       <h3>Events</h3>
         <Card.Group >
           {this.getCards()}

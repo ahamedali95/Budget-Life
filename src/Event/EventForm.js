@@ -95,8 +95,8 @@ class EventForm extends React.Component{
               <Label>Date</Label>
               <DatePicker selected={moment(this.state.date)} onChange={this.handleChangeForDatePicker} />
             </Form.Field>
-          </Form.Group>
           <Form.Field control="button">Create Event</Form.Field>
+       </Form.Group>
         </Form>
       </div>
     );

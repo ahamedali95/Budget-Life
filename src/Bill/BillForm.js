@@ -108,8 +108,9 @@ class BillForm extends React.Component {
               <Label>Date</Label>
               <DatePicker selected={moment(this.state.due_date)} onChange={this.handleChangeForDatePicker} />
             </Form.Field>
-          </Form.Group>
+
           <Form.Field control="button">Create Bill</Form.Field>
+          </Form.Group>
          </Form>
        </div>
      );

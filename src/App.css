@@ -45,8 +45,9 @@ body{
 }
 
 
- #billCollect, #transactionTable{
+ #billCollect, #transactionTable, #eventColect{
     max-width: 900px;
+    margin-top:80px;
     margin-left: auto;
     margin-right: auto;
 
