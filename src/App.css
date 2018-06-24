@@ -28,7 +28,7 @@ body{
    margin: 30px;
 }
 
-#transaction-form, #billCollect, #homeCont{
+#transaction-form, #homeCont{
     width: 950px;
     margin-left: auto;
     margin-right: auto;
@@ -45,7 +45,7 @@ body{
 }
 
 
-#transactionTable , #BillCollection{
+ #billCollect, #transactionTable{
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -75,9 +75,12 @@ body{
 }
 
 /* Transaction container */
-#expenseRow, #incomeRow, #typeRow{
+#expenseRow, #incomeRow, #typeRow, #billCategoryForm{
    width: 75px;
 }
 #catRow, #dateRow{
    width:90px;
+}
+#billAmountDue, #billCategory, #billDueDate, #billDelete{
+   width:60px;
 }

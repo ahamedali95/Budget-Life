@@ -25,15 +25,16 @@ const BillsCollection = (props) => {
     <div id="billCollect" >
     {
       props.bills.length > 0 ?
-      <div id="BillCollection">
+      <div >
         <Table>
           <Table.Header>
-             Bills
             <Table.Row>
-              <th>Description</th>
-              <th>Amount Due</th>
-              <th>Category</th>
-              <th>Due Date</th>
+            <Table.HeaderCell>Description</Table.HeaderCell>
+            <Table.HeaderCell id="billAmountDue">Amount Due</Table.HeaderCell>
+               <Table.HeaderCell id="billCategory">Category</Table.HeaderCell>
+            <Table.HeaderCell id="billDueDate"> Due Date</Table.HeaderCell>
+            <Table.HeaderCell id="billDelete">Del</Table.HeaderCell>
+
             </Table.Row>
           </Table.Header>
           <Table.Body>

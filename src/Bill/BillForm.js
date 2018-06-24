@@ -41,7 +41,7 @@ class BillForm extends React.Component {
    }
 
   myFormat= (num) => {
-    return num + '$';
+    return '$' + num ;
   }
 
   getOption = (event) => {
@@ -87,18 +87,24 @@ class BillForm extends React.Component {
 
          <Form onSubmit={this.handleSubmit}>
           <Form.Field>
-            <Input label="Description" type="text" placeholder="Add a description" name="description" value={this.state.description} onChange={this.handleChange} />
+            <Input
+               label="Description"
+               type="text"
+               placeholder="Add a description"
+               name="description"
+               value={this.state.description}
+               onChange={this.handleChange} />
           </Form.Field>
-          <Form.Field>
+          <Form.Field id="billCategoryForm">
             <Label>Category</Label>
             <CategorySelection categories={this.props.categories} getOption={this.getOption}/>
           </Form.Field>
           <Form.Group >
-            <Form.Field>
+            <Form.Field width={8}>
               <Label>Amount</Label>
               <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.due_amount} onChange={this.handleChangeForNumbericInput}/>
             </Form.Field>
-            <Form.Field>
+            <Form.Field width={8}>
               <Label>Date</Label>
               <DatePicker selected={moment(this.state.due_date)} onChange={this.handleChangeForDatePicker} />
             </Form.Field>
