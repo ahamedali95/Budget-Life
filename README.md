@@ -36,9 +36,9 @@ Following is the tree-like React Component Hierarchy that describes the componen
 
 **Notable tools:**
 
-- Semantic UI React - front-end framework that helps to add stylish and responsive layouts to the user interface using pre-made, react-like components.
-- Rack Cors - a Rails gem that allows support for Cross-Origin Resource Sharing(CORS) to allow the resources of a Rails web server to be accessed by a web page from a different domain.
-- Serializer - a Rails gem that allows to build JSON APIs through serializer objects. This provides a dedicated place to fully customize the JSON output.
+- **Semantic UI React** - front-end framework that helps to add stylish and responsive layouts to the user interface using pre-made, react-like components.
+- **Rack Cors** - a Rails gem that allows support for Cross-Origin Resource Sharing(CORS) to allow the resources of a Rails web server to be accessed by a web page from a different domain.
+- **Serializer** - a Rails gem that allows to build JSON APIs through serializer objects. This provides a dedicated place to fully customize the JSON output.
 
 **Planned Features:**
 
