@@ -49,7 +49,6 @@ class BillContainer extends Component {
   render() {
     return (
       <div id="billCont">
-        <h1>Bills</h1>
         <BillForm addNewBill={this.addNewBill} categories={this.state.categories}/>
         <BillsCollection removeBill={this.removeBill} categories={this.state.categories} bills={this.state.bills}/>
       </div>
