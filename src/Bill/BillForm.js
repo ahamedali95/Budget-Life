@@ -25,7 +25,6 @@ class BillForm extends React.Component {
     let id = (e.target.id === "") ? e.target.parentElement.id : e.target.id;
 
     if (typeof(e.target.name) === "undefined") {
-      console.log("I am hit!!!!!!!!!")
       this.setState({[name]: id});
     } else {
       this.setState({[e.target.name] : e.target.value});
@@ -34,7 +33,7 @@ class BillForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    
     adapter.post("http://localhost:3001/api/v1/bills", this.state)
     .then(response => response.json())
     .then(data => {this.props.addNewBill(data)})
@@ -45,7 +44,6 @@ class BillForm extends React.Component {
     this.setState({
       date: "",
       description: "",
-      category_id: "",
       amount_due: "",
       user_id: 1,
     });

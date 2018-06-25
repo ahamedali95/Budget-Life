@@ -46,17 +46,17 @@ class HomeContainer extends React.Component {
       });
   });
 
-    adapter.get("http://localhost:3001/api/v1/bills")
-    .then(response => response.json())
-    .then(data => {
-      const latestBills = data.sort((billObj1, billObj2) => {
-        return new Date(billObj1.due_date) - new Date(billObj2.due_date);
-      }).slice(0, 3);
-
-      this.setState({
-        bills: latestBills
-      }, () => {console.log("state"), console.log(this.state)});
-    });
+    // adapter.get("http://localhost:3001/api/v1/bills")
+    // .then(response => response.json())
+    // .then(data => {
+    //   const latestBills = data.sort((billObj1, billObj2) => {
+    //     return new Date(billObj1.due_date) - new Date(billObj2.due_date);
+    //   }).slice(0, 3);
+    //
+    //   this.setState({
+    //     bills: latestBills
+    //   }, () => {console.log("state"), console.log(this.state)});
+    // });
   }
 
   render() {

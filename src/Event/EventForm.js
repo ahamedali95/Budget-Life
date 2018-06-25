@@ -7,14 +7,15 @@ import adapter from "./../adapter.js";
 import { Form, Input, Label } from 'semantic-ui-react'
 
 class EventForm extends React.Component{
-   constructor(){
-    super();
+   constructor(props){
+    super(props);
 
     this.state = {
       name: "",
-      amount_needed: "",
-      savings: "",
-      date: ""
+      goal_amount: "",
+      current_savings: "",
+      date: "",
+      user_id: 1
     }
   }
 
@@ -25,15 +26,7 @@ class EventForm extends React.Component{
   }
 
   handleSubmit = (event) => {
-    const body = {
-      date: this.state.date,
-      name: this.state.name,
-      current_savings: this.state.savings,
-      goal_amount: this.state.amount_needed,
-      user_id: 1,
-    };
-
-    adapter.post("http://localhost:3001/api/v1/event_plannings", body)
+    adapter.post("http://localhost:3001/api/v1/event_plannings", this.state)
     .then(response => response.json())
     .then(data => {this.props.addNewEvent(data)})
     .then(this.resetForm);
@@ -42,8 +35,8 @@ class EventForm extends React.Component{
   resetForm = () => {
     this.setState({
       name: "",
-      amount_needed: "",
-      savings: "",
+      goal_amount: "",
+      current_savings: "",
       date: ""
     });
   }
@@ -70,7 +63,6 @@ class EventForm extends React.Component{
             <Form.Field>
               <Input
                 required
-                id="formDate"
                 value={this.state.date}
                 onChange={this.handleChange}
                 name="date"
@@ -85,7 +77,7 @@ class EventForm extends React.Component{
               <Input
                 onChange={this.handleChange}
                 value={this.state.amount_needed}
-                name="amount_needed"
+                name="goal_amount"
                 type="number"
                 min="1"
                 step="any"
@@ -98,7 +90,7 @@ class EventForm extends React.Component{
               <Input
                 onChange={this.handleChange}
                 value={this.state.savings}
-                name="savings"
+                name="current_savings"
                 type="number"
                 min="1"
                 step="any"

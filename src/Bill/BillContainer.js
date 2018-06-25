@@ -35,7 +35,6 @@ class BillContainer extends Component {
     adapter.delete(`http://localhost:3001/api/v1/bills/${bill.id}`)
     .then(response => response.json())
     .then(() => {
-      console.log("state", this.state)
       const bills1 = this.state.bills.filter((billObj) => {
         return billObj.id !== bill.id
       });

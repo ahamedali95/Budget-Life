@@ -76,12 +76,12 @@ body{
 }
 
 /* Transaction container */
-#expenseRow, #incomeRow, #typeRow, #billCategoryForm{
+#expenseRow, #incomeRow, #typeRow, #billCategoryForm {
    width: 75px;
 }
 #catRow, #dateRow{
    width:90px;
 }
-#billAmountDue, #billCategory, #billDueDate, #billDelete{
+#billAmountDue, #billCategory, #billDueDate, #billDelete, #eventFormAmountField, {
    width:60px;
 }

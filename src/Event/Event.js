@@ -15,7 +15,6 @@ class Event extends React.Component {
   }
 
   componentDidMount() {
-    console.log("inside componenrt did mount")
     if(this.props.event.goal_amount > this.props.event.current_savings) {
       this.setState({
         color: "red"
@@ -68,7 +67,7 @@ class Event extends React.Component {
     return (
       <div>
         <Card>
-          <Card.Content style={{"background-color": this.state.color}}>
+          <Card.Content style={{"backgroundColor": this.state.color}}>
             <Card.Header>{this.props.event.name}</Card.Header>
             <Card.Meta>${this.props.event.goal_amount}</Card.Meta>
           </Card.Content>
@@ -77,7 +76,14 @@ class Event extends React.Component {
               {
                 this.state.isClicked ?
                   <div>
-                    <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.savings} onChange={this.handleChangeForNumbericInput}/>
+                    <NumericInput
+                      format={this.myFormat}
+                      step={1.00}
+                      precision={2}
+                      min={1}
+                      max={9999999}
+                      value={this.state.savings}
+                      onChange={this.handleChangeForNumbericInput}/>
                     <button onClick={this.updateSavings}>Update Savings</button>
                   </div>
                   :

@@ -7,8 +7,8 @@ class BillsCollection extends Component {
   }
 
   getFormattedDate = (billDate) => {
-    console.log("DATE", billDate)
     const splittedDate = billDate.slice(0, 10).split("-");
+
     return [splittedDate[1], splittedDate[2], splittedDate[0]].join("/");
   }
 
