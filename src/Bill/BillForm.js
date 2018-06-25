@@ -104,7 +104,7 @@ class BillForm extends React.Component {
               name="amount_due"
               type="number"
               min="1"
-              step=".01"
+              step="any"
               label="Amount"
               placeholder="Enter amount due"
             />

@@ -12,40 +12,16 @@ class EventForm extends React.Component{
 
     this.state = {
       name: "",
-      amount_needed: 50.00,
-      savings: 50.00,
-      date: moment()
+      amount_needed: "",
+      savings: "",
+      date: ""
     }
   }
 
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
-    }, () => console.log(this.state));
-  }
-
-  handleChangeForNumbericInput1 = (value) => {
-    this.setState({
-      amount_needed: value
-    }, () => console.log(this.state));
-  }
-
-  handleChangeForNumbericInput2 = (value) => {
-    this.setState({
-      savings: value
-    }, () => console.log(this.state));
-  }
-
-  handleChangeForDatePicker = (event) => {
-    const date = event._d.toDateString();
-
-    this.setState({
-      date: date
-    }, () => console.log(this.state));
-  }
-
-  myFormat= (num) => {
-    return num + '$';
+    }, () => console.log("state for event form", this.state));
   }
 
   handleSubmit = (event) => {
@@ -66,37 +42,73 @@ class EventForm extends React.Component{
   resetForm = () => {
     this.setState({
       name: "",
-      description: "",
-      amount_needed: 50.00,
-      savings: 50.00,
-      date: moment()
+      amount_needed: "",
+      savings: "",
+      date: ""
     });
   }
 
   render() {
     return (
       <div id="eventForm">
-        <Form  onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <h3>Add an Event</h3>
 
-          <Form.Field>
-            <Input label="Name" type="text" placeholder="Event Name" name="name" value={this.state.name} onChange={this.handleChange}/>
-          </Form.Field>
-          <Form.Group >
+          <Form.Group>
             <Form.Field>
-              <Label>Amount Needed</Label>
-              <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.amount_needed} onChange={this.handleChangeForNumbericInput1}/>
+              <Input
+                required
+                label="Name"
+                type="text"
+                placeholder="Event Name"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
             </Form.Field>
+
             <Form.Field>
-              <Label>Savings</Label>
-              <NumericInput format={this.myFormat} step={1.00} precision={2} min={1} max={9999999} value={this.state.savings} onChange={this.handleChangeForNumbericInput2}/>
+              <Input
+                required
+                id="formDate"
+                value={this.state.date}
+                onChange={this.handleChange}
+                name="date"
+                type="date"
+                label='Date'
+               />
             </Form.Field>
+          </Form.Group>
+
+          <Form.Group>
             <Form.Field>
-              <Label>Date</Label>
-              <DatePicker selected={moment(this.state.date)} onChange={this.handleChangeForDatePicker} />
+              <Input
+                onChange={this.handleChange}
+                value={this.state.amount_needed}
+                name="amount_needed"
+                type="number"
+                min="1"
+                step="any"
+                label="Amount Needed"
+                placeholder="Enter amount due"
+              />
             </Form.Field>
-          <Form.Field control="button">Create Event</Form.Field>
-       </Form.Group>
+
+            <Form.Field>
+              <Input
+                onChange={this.handleChange}
+                value={this.state.savings}
+                name="savings"
+                type="number"
+                min="1"
+                step="any"
+                label="Savings"
+                placeholder="Enter amount due"
+              />
+            </Form.Field>
+
+            <Form.Field control="button">Create Event</Form.Field>
+          </Form.Group>
         </Form>
       </div>
     );
