@@ -25,8 +25,6 @@ displayTransactions = () => {
        let mm = date[1]
        let dd = date[2].split("T")[0]
        let yyyy= date[0]
-       // let incomeStyle = (row.transaction_type) === "income" ? {'background-color':'#569d55'} : ({'background-color':'#e25170'})
-       // let expenseStyle = (row.transaction_type) === "expense" ? {'background-color':'#569d55'} : ({'background-color':'#e25170'})
 
       return  (
             <Table.Row key={row.id} id={row.id}>
@@ -49,7 +47,6 @@ totalAmounts = (category, amount) => {
       totalExpenses += amount
    }
 }
-
 
     render() {
       let transactions = this.displayTransactions()
@@ -94,6 +91,10 @@ const styles = {
    other: {backgroundColor:'#fff'},
 
 }
+
+//line 28
+// let incomeStyle = (row.transaction_type) === "income" ? {'background-color':'#569d55'} : ({'background-color':'#e25170'})
+// let expenseStyle = (row.transaction_type) === "expense" ? {'background-color':'#569d55'} : ({'background-color':'#e25170'})
 
 
 

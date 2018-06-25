@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
-//import PropTypes from 'prop-types'
 import { Button, Form, Input } from 'semantic-ui-react'
-// let dateFormat = require('dateformat');
 import adapter from './../adapter';
+import Categories from '../Helpers/categoryHelper.js';
+//import PropTypes from 'prop-types'
+// let dateFormat = require('dateformat');
 // let now = new Date()
 let url = "http://localhost:3001/api/v1/transactions"
 
@@ -47,9 +48,7 @@ class TransactionForm extends Component{
     }
 
   render() {
-     let newCats = this.props.categories.map(cats=>{
-        return {key:cats.id, text: cats.name, value:cats.name.replace(" ","").toLowerCase(), id: cats.id}
-     })
+     let categories = Categories(this.props.categories)
     return (
         <div id="transaction-form">
       <Form onSubmit={this.handleSubmit}>
@@ -57,25 +56,27 @@ class TransactionForm extends Component{
         <Form.Group >
           <Form.Field
              required
-             onChange={this.handleChange}
              id="formDate"
+             onChange={this.handleChange}
              control={Input}
              name="date"
              type="date"
              label='Date' />
-          <Form.Field id="formDescription"
-             onChange={this.handleChange} name="description"
+          <Form.Field
              required
+             id="formDescription"
+             onChange={this.handleChange}
+             name="description"
              control={Input}
              label='Description'
              placeholder='Enter Description...'/>
           <Form.Select
+             required
              id="formCategory"
              onChange={this.handleChange}
              name="category_id"
-             required
              label='Category'
-             options={newCats}
+             options={categories}
              placeholder='Category' />
 
           <Form.Select
@@ -91,6 +92,9 @@ class TransactionForm extends Component{
              onChange={this.handleChange}
              id = "formAmount"
              label='Amount'
+             type="number"
+             min="1"
+             step=".01"
              required
              name="amount"
              control={Input}
