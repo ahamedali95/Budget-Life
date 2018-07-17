@@ -75,6 +75,7 @@ class EventForm extends React.Component{
           <Form.Group>
             <Form.Field>
               <Input
+                required
                 onChange={this.handleChange}
                 value={this.state.amount_needed}
                 name="goal_amount"

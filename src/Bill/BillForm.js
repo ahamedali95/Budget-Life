@@ -15,7 +15,7 @@ class BillForm extends React.Component {
     this.state = {
       date: "",
       description: "",
-      category_id: "",
+      category_id: 2,
       amount_due: "",
       user_id: 1,
     };
@@ -33,7 +33,7 @@ class BillForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    
+
     adapter.post("http://localhost:3001/api/v1/bills", this.state)
     .then(response => response.json())
     .then(data => {this.props.addNewBill(data)})
@@ -97,6 +97,7 @@ class BillForm extends React.Component {
           </Form.Field>
           <Form.Field>
             <Input
+              required
               onChange={this.handleChange}
               value={this.state.amount_due}
               name="amount_due"
