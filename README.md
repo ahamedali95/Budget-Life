@@ -44,3 +44,8 @@ Following is the tree-like React Component Hierarchy that describes the componen
 
 - Open Authorization(OAuth)
 - Interactive graphs to represent data
+
+**Link to Backend application:**
+https://github.com/ahamedali95/Budget-Life-back-end
+
+**Demo:**

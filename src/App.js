@@ -1,36 +1,31 @@
-import React, { Component } from 'react';
-import './App.css';
-import NavBar from './NavBar.js';
-import LoginSignUpContainer from './LoginSignUp/loginSignUpContainer.js';
-import HomeContainer from './Home/HomeContainer.js';
-import Transaction from './Transaction/transactionContainer.js';
-import BillContainer from './Bill/BillContainer.js';
-import EventContainer from './Event/EventContainer.js';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import React, { Component } from "react";
+import "./App.css";
+import NavBar from "./NavBar.js";
+import HomeContainer from "./Home/HomeContainer.js";
+import Transaction from "./Transaction/transactionContainer.js";
+import BillContainer from "./Bill/BillContainer.js";
+import EventContainer from "./Event/EventContainer.js";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
-    constructor(){
-        super();
-        this.state = {
-            isAuthenticated: false
-        }
+  constructor(){
+    super();
+    this.state = {
+      isAuthenticated: false
     }
+  }
   render() {
-
     return (
       <div className="App">
-
-      <Router>
+        <Router>
           <div>
-          <NavBar />
-          <Route exact path="/" component={LoginSignUpContainer}></Route>
-          <Route exact path="/home" component={HomeContainer}></Route>
-          <Route exact path="/transactions" component={Transaction}></Route>
-          <Route exact path="/event_plannings" component={EventContainer}></Route>
-          <Route exact path="/bills" component={BillContainer}></Route>
+            <NavBar />
+            <Route exact path="/home" component={HomeContainer}></Route>
+            <Route exact path="/transactions" component={Transaction}></Route>
+            <Route exact path="/event_plannings" component={EventContainer}></Route>
+            <Route exact path="/bills" component={BillContainer}></Route>
           </div>
-      </Router>
+        </Router>
       </div>
     );
   }

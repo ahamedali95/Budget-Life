@@ -52,7 +52,6 @@ class HomeContainer extends React.Component {
       <div>
          <div id="homeCont">
              <h1>Dashboard</h1>
-              <h1>Will Show graphs of goals and savings</h1>
               <Bills bills={this.state.bills} categories={this.state.categories}/>
               <Events events={this.state.events}/>
           </div>

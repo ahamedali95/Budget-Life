@@ -1,16 +1,13 @@
-import React, {Component} from 'react'
-import { Button, Form, Input } from 'semantic-ui-react'
-import adapter from './../adapter';
-import Categories from '../Helpers/categoryHelper.js';
-//import PropTypes from 'prop-types'
-// let dateFormat = require('dateformat');
-// let now = new Date()
+import React, {Component} from "react"
+import { Button, Form, Input } from "semantic-ui-react"
+import adapter from "./../adapter";
+import Categories from "../Helpers/categoryHelper.js";
 let url = "http://localhost:3001/api/v1/transactions"
 
 const options = [
-  { key: 'i', text: 'Income', value: 'income' },
-  { key: 'e', text: 'Expense', value: 'expense' }]
-
+  { key: "i", text: "Income", value: "income" },
+  { key: "e", text: "Expense", value: "expense" }
+];
 
 class TransactionForm extends Component{
      constructor(props){
@@ -24,6 +21,7 @@ class TransactionForm extends Component{
            user_id: 1,
         }
     }
+
     handleChange = (e, {name, value}) => {
       let id = (e.target.id === "") ? e.target.parentElement.id : e.target.id
      if (typeof(e.target.name) === "undefined"){
@@ -43,8 +41,6 @@ class TransactionForm extends Component{
          .then(response=>response.json())
          .then(transaction=>this.props.addNewTransaction(transaction))
          // .then(transaction=>console.log(transaction, "what is"))
-
-
     }
 
   render() {
@@ -61,51 +57,47 @@ class TransactionForm extends Component{
              control={Input}
              name="date"
              type="date"
-             label='Date' />
+             label="Date" />
           <Form.Field
              required
              id="formDescription"
              onChange={this.handleChange}
              name="description"
              control={Input}
-             label='Description'
-             placeholder='Enter Description...'/>
+             label="Description"
+             placeholder="Enter Description..."/>
           <Form.Select
              required
              id="formCategory"
              onChange={this.handleChange}
              name="category_id"
-             label='Category'
+             label="Category"
              options={categories}
-             placeholder='Category' />
+             placeholder="Category" />
 
           <Form.Select
              id="formType"
              onChange={this.handleChange}
-             label='Transaction'
+             label="Transaction"
              required
              name="transaction_type"
              options={options}
-             placeholder='Type'/>
+             placeholder="Type"/>
 
           <Form.Field
              onChange={this.handleChange}
              id = "formAmount"
-             label='Amount'
+             label="Amount"
              type="number"
              min="1"
              step=".01"
              required
              name="amount"
              control={Input}
-             placeholder='Enter Amount'/>
+             placeholder="Enter Amount"/>
 
             <Form.Field id="formButton" control={Button}>Add</Form.Field>
-
-
         </Form.Group>
-
-
       </Form>
   </div>
     )
