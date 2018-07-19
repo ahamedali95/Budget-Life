@@ -51,3 +51,6 @@ https://github.com/ahamedali95/Budget-Life-back-end
 **Demo:**
 
 [![watch this video](https://img.youtube.com/vi/w_rQkDAGYyk/0.jpg)](https://youtu.be/w_rQkDAGYyk)
+
+### Instructions
+To start, run ```npm install``` && ```npm start``` to get the app up and running. To designate a different port number for the app, modify the scripts in package.json from ```"start": "react-scripts start"``` to ```"start": "PORT={PORT NO.} react-scripts start"```
